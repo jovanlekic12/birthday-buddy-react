@@ -12,7 +12,7 @@ function App() {
   }
 
   function handleDeleteBirthday(id) {
-    setBirthdays((prev) => prev.filter((birthday) => birthday.id !== id));
+    setBirthdays((arr) => arr.filter((birthday) => birthday.id !== id));
   }
 
   return (
@@ -31,9 +31,8 @@ function App() {
           );
         })}
       </section>
-      <button className="clear-all-btn" onClick={handleDeleteAll}>
-        {" "}
-        Clear All{" "}
+      <button className="clear__all__btn" onClick={handleDeleteAll}>
+        Clear All
       </button>
     </main>
   );

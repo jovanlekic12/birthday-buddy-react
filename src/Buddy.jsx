@@ -12,8 +12,7 @@ function Buddy(props) {
         </div>
       </div>
       <button className="delete__btn" onClick={() => handleDeleteBirthday(id)}>
-        {" "}
-        X{" "}
+        delete
       </button>
     </article>
   );
