@@ -1,4 +1,4 @@
-const birthdays = [
+const data = [
   {
     id: 1,
     name: "Bertie Yates",
@@ -36,4 +36,4 @@ const birthdays = [
   },
 ];
 
-export default birthdays;
+export default data;

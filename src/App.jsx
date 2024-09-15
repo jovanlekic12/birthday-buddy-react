@@ -1,21 +1,41 @@
 import { useState } from "react";
-import Birthday from "./birthdays.jsx";
-import birthdays from "./data.js";
+import Buddy from "./buddy.jsx";
+import data from "./data.js";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [birthdays, setBirthdays] = useState(data);
+
+  function handleDeleteAll() {
+    const newArray = [];
+    setBirthdays(newArray);
+  }
+
+  function handleDeleteBirthday(id) {
+    setBirthdays((prev) => prev.filter((birthday) => birthday.id !== id));
+  }
 
   return (
-    <>
-      <main>
-        <section>
-          {birthdays.map((birthday) => {
-            return birthdays && <Birthday key={birthday.id} {...Birthday} />;
-          })}
-        </section>
-      </main>
-    </>
+    <main className="container">
+      <h1> {birthdays.length} Birthdays Today </h1>
+      <section className="birthday__section">
+        {birthdays.map((birthday) => {
+          return (
+            birthdays && (
+              <Buddy
+                key={birthday.id}
+                {...birthday}
+                handleDeleteBirthday={handleDeleteBirthday}
+              />
+            )
+          );
+        })}
+      </section>
+      <button className="clear-all-btn" onClick={handleDeleteAll}>
+        {" "}
+        Clear All{" "}
+      </button>
+    </main>
   );
 }
 
